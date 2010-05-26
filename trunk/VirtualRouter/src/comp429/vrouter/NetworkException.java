@@ -23,7 +23,6 @@ public class NetworkException extends java.lang.Exception {
     super(reason);
   }
 
-
   /**
    * General, unexplained Network Object
    * Used to indicate any network exception without explanation
