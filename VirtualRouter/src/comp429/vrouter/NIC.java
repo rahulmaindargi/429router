@@ -11,6 +11,9 @@ package comp429.vrouter;
  * a virtual ethernet interface for a virtual software-based TCP/IP
  * router.
  *
+ * All instances of NIC objects must produce a seperate thread of execution.
+ * This thread of execution must be CPU efficient.
+ *
  * @author jeffw
  */
 public interface NIC {
@@ -75,8 +78,10 @@ public interface NIC {
    * destination address and deliver all packets to the operating system
    * for further processing.
    *
-   * @param state true sets the NIC to operate in promiscuous mode and process all packets, false sets the NIC in normal mode where only packets matching its address or broadcast will be processed.
-   * @return
+   * @param state true sets the NIC to operate in promiscuous mode and
+   * process all packets, false sets the NIC in normal mode where only
+   * packets matching its address or broadcast will be processed.
+   * @return The previous setting of the promiscuous state.
    */
   boolean promiscuous(boolean state);
 }
